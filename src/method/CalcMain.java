@@ -14,6 +14,10 @@ public class CalcMain {
 		int sum = calc.getSum(x);
 		System.out.println(sum);
 		
+		int sum2 = calc.getSum(new int[] {100, 90, 80});
+		System.out.println(sum2);
+		
+		
 		calc.welcome("John");
 		
 		calc.welcome();
