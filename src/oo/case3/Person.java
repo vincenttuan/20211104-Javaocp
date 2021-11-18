@@ -1,6 +1,7 @@
 package oo.case3;
 
 public class Person {
+	// 屬性
 	String name;
 	double height;
 	double weight;
@@ -17,6 +18,11 @@ public class Person {
 	// 建構子 2
 	Person() {
 		
+	}
+	
+	// 方法
+	void calcBmi() {
+		bmi = weight / Math.pow(height/100, 2); // 自動算出
 	}
 	
 	@Override
