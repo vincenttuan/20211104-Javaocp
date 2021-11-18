@@ -3,7 +3,7 @@ package oo.case5;
 import java.util.Scanner;
 
 public class ATM {
-	Account acct; // ±b¤á(´¡¥d)
+	Account acct; // å¸³æˆ¶(æ’å¡)
 	
 	ATM(Account acct) {
 		this.acct = acct;
@@ -11,12 +11,12 @@ public class ATM {
 	
 	void menu() {
 		System.out.println("------------");
-		System.out.println("1. ¬d¸ß±b¤á");
-		System.out.println("2. ¦s´Ú");
-		System.out.println("3. ´£´Ú");
+		System.out.println("1. æŸ¥è©¢å¸³æˆ¶");
+		System.out.println("2. å­˜æ¬¾");
+		System.out.println("3. ææ¬¾");
 		System.out.println("0. Exit");
 		System.out.println("------------");
-		System.out.print("½Ğ¿ï¾Ü: ");
+		System.out.print("è«‹é¸æ“‡: ");
 		Scanner scanner = new Scanner(System.in);
 		int n = scanner.nextInt();
 		switch (n) {
@@ -24,25 +24,23 @@ public class ATM {
 				System.out.println(acct);
 				break;
 			case 2:
-				System.out.print("½Ğ¿é¤J¦s´Úª÷ÃB: ");
-				scanner = new Scanner(System.in);
+				System.out.print("è«‹è¼¸å…¥å­˜æ¬¾é‡‘é¡: ");
 				int amount = scanner.nextInt();
 				boolean saveCheck = acct.save(amount);
 				if(saveCheck) {
-					System.out.println("´£´Ú¦¨¥\");
+					System.out.println("ææ¬¾æˆåŠŸ");
 				} else {
-					System.out.println("´£´Ú¥¢±Ñ");
+					System.out.println("ææ¬¾å¤±æ•—");
 				}
 				break;
 			case 3:
-				System.out.print("½Ğ¿é¤J´£´Úª÷ÃB: ");
-				scanner = new Scanner(System.in);
+				System.out.print("è«‹è¼¸å…¥ææ¬¾é‡‘é¡: ");
 				int amount2 = scanner.nextInt();
 				boolean withdrawCheck = acct.withdraw(amount2);
 				if(withdrawCheck) {
-					System.out.println("´£´Ú¦¨¥\");
+					System.out.println("ææ¬¾æˆåŠŸ");
 				} else {
-					System.out.println("´£´Ú¥¢±Ñ");
+					System.out.println("ææ¬¾å¤±æ•—");
 				}
 				break;
 			case 0:
