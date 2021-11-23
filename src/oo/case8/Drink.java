@@ -12,7 +12,7 @@ public class Drink {
 	Drink(int amount, int size) {
 		setAmount(amount);
 		setSize(size);
-		total = getTotal();
+		getTotal();
 	}
 	
 	public void setAmount(int num) {
@@ -27,6 +27,7 @@ public class Drink {
 	
 	public int getTotal() {
 		int total = amount * size;
+		this.total = total;
 		return total;
 	}
 	
