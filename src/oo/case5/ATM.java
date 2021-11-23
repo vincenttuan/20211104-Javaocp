@@ -3,20 +3,29 @@ package oo.case5;
 import java.util.Scanner;
 
 public class ATM {
-	Account acct; // å¸³æˆ¶(æ’å¡)
+	Account acct; // ±b¤á(´¡¥d)
+	Account acctT; // Âà±b¹ï¶H
 	
 	ATM(Account acct) {
 		this.acct = acct;
 	}
 	
+	ATM(Account acct, Account acctT) {
+		this.acct = acct;
+		this.acctT = acctT;
+	}
+	
 	void menu() {
 		System.out.println("------------");
-		System.out.println("1. æŸ¥è©¢å¸³æˆ¶");
-		System.out.println("2. å­˜æ¬¾");
-		System.out.println("3. ææ¬¾");
+		System.out.println("1. ¬d¸ß±b¤á");
+		System.out.println("2. ¦s´Ú");
+		System.out.println("3. ´£´Ú");
+		if(acctT != null) {
+			System.out.println("4. Âà±b");
+		}
 		System.out.println("0. Exit");
 		System.out.println("------------");
-		System.out.print("è«‹é¸æ“‡: ");
+		System.out.print("½Ğ¿ï¾Ü: ");
 		Scanner scanner = new Scanner(System.in);
 		int n = scanner.nextInt();
 		switch (n) {
@@ -24,23 +33,34 @@ public class ATM {
 				System.out.println(acct);
 				break;
 			case 2:
-				System.out.print("è«‹è¼¸å…¥å­˜æ¬¾é‡‘é¡: ");
+				System.out.print("½Ğ¿é¤J¦s´Úª÷ÃB: ");
 				int amount = scanner.nextInt();
 				boolean saveCheck = acct.save(amount);
 				if(saveCheck) {
-					System.out.println("ææ¬¾æˆåŠŸ");
+					System.out.println("´£´Ú¦¨¥\");
 				} else {
-					System.out.println("ææ¬¾å¤±æ•—");
+					System.out.println("´£´Ú¥¢±Ñ");
 				}
 				break;
 			case 3:
-				System.out.print("è«‹è¼¸å…¥ææ¬¾é‡‘é¡: ");
+				System.out.print("½Ğ¿é¤J´£´Úª÷ÃB: ");
 				int amount2 = scanner.nextInt();
 				boolean withdrawCheck = acct.withdraw(amount2);
 				if(withdrawCheck) {
-					System.out.println("ææ¬¾æˆåŠŸ");
+					System.out.println("´£´Ú¦¨¥\");
 				} else {
-					System.out.println("ææ¬¾å¤±æ•—");
+					System.out.println("´£´Ú¥¢±Ñ");
+				}
+				break;
+			case 4:
+				System.out.print("½Ğ¿é¤JÂà±bª÷ÃB: ");
+				int amount3 = scanner.nextInt();
+				boolean transferCheck = acct.transfer(amount3, acctT);
+				if(transferCheck) {
+					System.out.println("Âà±b¦¨¥\");
+					System.out.printf("%s Âàµ¹ %s $%d\n", acct.name, acctT.name, amount3);
+				} else {
+					System.out.println("Âà±b¥¢±Ñ");
 				}
 				break;
 			case 0:
