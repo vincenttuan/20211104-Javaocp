@@ -9,11 +9,12 @@ public class Clothe {
 	public int getSize() {
 		return size;
 	}
-
+	
 	public void setSize(int size) {
 		if(size == Size.L || size == Size.M || size == Size.S) {
 			this.size = size;
 		}
+		setTotal();
 	}
 
 	public int getAmount() {
@@ -24,13 +25,17 @@ public class Clothe {
 		if(amount > 0 && amount <= 10) {
 			this.amount = amount;
 		}
+		setTotal();
 	}
 
 	public int getTotal() {
-		total = amount * size;
+		setTotal();
 		return total;
 	}
-
+	
+	private void setTotal() {
+		total = amount * size;
+	}
 
 	@Override
 	public String toString() {
