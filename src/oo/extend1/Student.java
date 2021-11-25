@@ -11,6 +11,12 @@ public class Student extends Person {
 	public Student(int grade) {
 		this.grade = grade;
 	}
+	
+	public Student(String name, int age, int grade) {
+		setName(name);
+		setAge(age);
+		this.grade = grade;
+	}
 
 	public int getGrade() {
 		return grade;
