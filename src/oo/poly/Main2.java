@@ -9,6 +9,10 @@ public class Main2 {
 		Pet pet = petStore.getPet();
 		if(pet != null) {
 			pet.shouting();
+			// ­Y±o¨ì Tiger «h©I¥s hunt()
+			if(pet instanceof Tiger) {
+				((Tiger)pet).hunt();
+			}
 		} else {
 			System.out.println("»ÊÁÂ´fÅU");
 		}
