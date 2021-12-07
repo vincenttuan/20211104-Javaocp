@@ -63,7 +63,9 @@ public class MySmartPhone implements SmartPhone {
 
 	@Override
 	public void download() {
-		System.out.println("¤U¸ü APP...");
+		if(power) {
+			System.out.println("¤U¸ü APP...");
+		}
 	}
 	
 }
