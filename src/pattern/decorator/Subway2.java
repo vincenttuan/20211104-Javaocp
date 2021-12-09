@@ -1,5 +1,7 @@
 package pattern.decorator;
 
+import java.util.Arrays;
+
 public class Subway2 {
 	public static void main(String[] args) {
 		// 鮪魚堡
@@ -21,7 +23,10 @@ public class Subway2 {
 		// 結帳
 		Food[] foods = {f1, f2};
 		// 利用 java 8 求 foods 裡面二個堡的總價
-		
+		int sum = Arrays.stream(foods)
+					.mapToInt(Food::getPrice)
+					.sum();
+		System.out.println(sum);
 		
 		
 	}
