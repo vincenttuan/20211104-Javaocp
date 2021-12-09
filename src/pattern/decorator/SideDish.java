@@ -9,7 +9,7 @@ public class SideDish extends Food {
 	
 	@Override
 	public String getName() {
-		return name + " + " + food.getName();
+		return name + "(" + price + ") + " + food.getName();
 	}
 
 	@Override
