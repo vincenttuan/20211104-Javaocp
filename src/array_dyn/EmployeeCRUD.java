@@ -15,6 +15,17 @@ public class EmployeeCRUD implements CRUD<Employee> {
 	public void update(Employee e) {
 		
 	}
+	
+	// 專屬給 EmployeeCRUD 所使用的 Update
+	public void update(Integer num, String name) {
+		Employee emp = getOne(num);
+		if(emp != null) {
+			emp.setName(name);
+			System.out.println("修改成功");
+		} else {
+			System.out.println("無此員編");
+		}
+	}
 
 	@Override
 	public void delete(Integer num) {
