@@ -2,6 +2,8 @@ package array_dyn;
 
 import java.util.ArrayList;
 
+import javax.management.RuntimeErrorException;
+
 public class EmployeeCRUD implements CRUD<Employee> {
 	// 存放員工物件的動態陣列
 	private static ArrayList<Employee> employees = new ArrayList<>();
@@ -13,7 +15,7 @@ public class EmployeeCRUD implements CRUD<Employee> {
 
 	@Override
 	public void update(Employee e) {
-		
+		throw new RuntimeException("此方法在此不使用");
 	}
 	
 	// 專屬給 EmployeeCRUD 所使用的 Update

@@ -16,6 +16,9 @@ public class EmployeeMain {
 		// §R°£ ­û½s 101
 		crud.delete(101);
 		System.out.println(crud.queryAll());
+		
+		// »~¥Î update
+		crud.update(new Employee(103, "Bobo"));
 	}
 
 }
