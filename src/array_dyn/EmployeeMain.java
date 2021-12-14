@@ -11,7 +11,10 @@ public class EmployeeMain {
 		
 		// 員編 101 的姓名要改為 Jack 
 		crud.update(101, "Jack");
+		System.out.println(crud.queryAll());
 		
+		// 刪除 員編 101
+		crud.delete(101);
 		System.out.println(crud.queryAll());
 	}
 

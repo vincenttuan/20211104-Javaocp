@@ -23,13 +23,19 @@ public class EmployeeCRUD implements CRUD<Employee> {
 			emp.setName(name);
 			System.out.println("修改成功");
 		} else {
-			System.out.println("無此員編");
+			System.out.println("修改失敗: 無此員編");
 		}
 	}
 
 	@Override
 	public void delete(Integer num) {
-		
+		Employee emp = getOne(num);
+		if(emp != null) {
+			employees.remove(emp);
+			System.out.println("刪除成功");
+		} else {
+			System.out.println("刪除失敗: 無此員編");
+		}
 	}
 
 	@Override
