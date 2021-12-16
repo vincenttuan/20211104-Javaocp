@@ -23,8 +23,11 @@ public class CalcTest {
 		};
 		System.out.println(c4.func(10, 20));
 		
-		Calc c5 = (x, y) -> Math.max(x, y);
-		Calc c6 = (x, y) -> Math.min(x, y);
+		//Calc c5 = (x, y) -> Math.max(x, y);
+		Calc c5 = Math::max;
+		//Calc c6 = (x, y) -> Math.min(x, y);
+		Calc c6 = Math::min;
+		
 		System.out.println(c5.func(10, 20));
 		System.out.println(c6.func(10, 20));
 		
