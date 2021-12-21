@@ -11,6 +11,7 @@ public class PositionTest {
 		printBonus(2, bonus);
 		
 		printBonus(100, bonus);
+		printBonus(-100, bonus);
 	}
 	
 	public static void printBonus(int pos, int bonus) {
