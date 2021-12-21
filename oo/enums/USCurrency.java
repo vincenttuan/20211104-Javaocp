@@ -6,7 +6,7 @@ public enum USCurrency {
 	
 	private int value;
 	
-	// •≤∂∑≠n®œ•Œ private
+	// Âª∫ÊßãÂ≠ê private
 	private USCurrency(int value) {
 		this.value = value;
 	}
