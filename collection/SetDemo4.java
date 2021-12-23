@@ -1,6 +1,7 @@
 package collection;
 
 import java.util.HashSet;
+import java.util.Iterator;
 import java.util.Set;
 
 public class SetDemo4 {
@@ -18,7 +19,13 @@ public class SetDemo4 {
 		System.out.println(exams);
 		
 		// 求總分 = ?
-		
+		int sum = 0;
+		Iterator<Exam> iter = exams.iterator();
+		while (iter.hasNext()) {
+			Exam exam = iter.next();
+			sum += exam.getScore();
+		}
+		System.out.println(sum);
 	}
 }
 
