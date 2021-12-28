@@ -1,8 +1,10 @@
 package collection2;
 
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.HashMap;
 import java.util.LinkedHashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
@@ -20,7 +22,9 @@ public class HashMapDemo {
 		// 請問數學幾分 ?
 		System.out.println(exams.get("數學"));
 		// 印出所有成績
-		Collection<Integer> values = exams.values();
+		//Collection<Integer> values = exams.values();
+		List<Integer> values = new ArrayList<>(exams.values());
+		
 		System.out.println(values);
 		// 求出總分
 		int sum = 0;
