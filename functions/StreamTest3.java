@@ -11,5 +11,12 @@ public class StreamTest3 {
 		exams.put("英文", 90);
 		// 利用 Java 8 Stream 求平均
 		// 提示: 使用 exams.entrySet()
+		double avg = exams.entrySet()
+			.stream()
+			.mapToInt(e -> e.getValue())
+			.average()
+			.getAsDouble();
+		System.out.println(avg);
+			
 	}
 }
