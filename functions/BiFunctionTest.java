@@ -15,6 +15,12 @@ public class BiFunctionTest {
 		System.out.println(result);
 		
 		// Lab: 請利用 BiFunction 寫一個計算 BMI 的程式
+		BiFunction<Double, Double, Double> bmi = (h, w) -> w / Math.pow(h/100, 2);
+		System.out.println(bmi.apply(170.0,  60.0));
 		
+		// 取最大值 (利用方法參考)
+		//BiFunction<Integer, Integer, Integer> max = (a, b) -> Math.max(a, b);
+		BiFunction<Integer, Integer, Integer> max = Math::max;
+		System.out.println(max.apply(10, 30));
 	}
 }

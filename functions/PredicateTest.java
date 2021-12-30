@@ -5,7 +5,7 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.function.Predicate;
 import java.util.stream.Collectors;
-
+import static java.util.stream.Collectors.toList;
 /*
 	@FunctionalInterface
 	public interface Predicate<T> {
@@ -31,7 +31,7 @@ public class PredicateTest {
 		List<Integer> evenList = list.stream()
 					.filter(even)
 					.filter(greaterThen5)
-					.collect(Collectors.toList());
+					.collect(toList());
 		System.out.println(evenList);
 		
 		// 取的偶數資料集合 java 7

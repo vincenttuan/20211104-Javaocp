@@ -13,7 +13,8 @@ public class FuncationTest {
 	public static void main(String[] args) {
 		// 得到某一個字串的長度
 		//Function<String, Integer> func = (x) -> {return x.length();};
-		Function<String, Integer> func = (x) -> x.length();
+		//Function<String, Integer> func = (x) -> x.length();
+		Function<String, Integer> func = String::length;
 		
 		Integer lens = func.apply("HelloWorld");
 		System.out.println(lens);
