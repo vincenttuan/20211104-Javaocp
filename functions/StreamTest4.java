@@ -25,7 +25,7 @@ public class StreamTest4 {
 		List<Salary> salaries = Arrays.asList(new Salary(50000), new Salary(60000), new Salary(90000)); 
 		// 求平均薪資
 		double avg = salaries.stream()
-					.mapToInt(Salary::getMoney)
+					.mapToInt(Salary::getMoney) // x -> x.getMoney()
 					.average().getAsDouble();
 		System.out.println(avg);
 	}
