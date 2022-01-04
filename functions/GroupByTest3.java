@@ -3,6 +3,7 @@ package functions;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 import java.util.stream.Collectors;
 
 public class GroupByTest3 {
@@ -34,7 +35,22 @@ public class GroupByTest3 {
 		System.out.println(result3);
 		
 		// 3. 根據價格 price 來分組
+		Map<Double, Long> result4 = fruits.stream()
+				.collect(Collectors.groupingBy(Fruit::getPrice, Collectors.counting()));
+		System.out.println(result4);
 		
+		Map<Double, List<Fruit>> result5 = fruits.stream()
+				.collect(Collectors.groupingBy(Fruit::getPrice));
+		System.out.println(result5);
+		
+		// 19.99 = [banana], 29.99 = [orange, watermelon], 9.99 = [papaya, apple]
+		Map<Double, List<String>> result6 = fruits.stream()
+				.collect(Collectors.groupingBy(Fruit::getPrice, Collectors.mapping(Fruit::getName, Collectors.toList())));
+		System.out.println(result6);
+		
+		Map<Double, Set<String>> result7 = fruits.stream()
+				.collect(Collectors.groupingBy(Fruit::getPrice, Collectors.mapping(Fruit::getName, Collectors.toSet())));
+		System.out.println(result7);
 		
 	}
 
