@@ -21,9 +21,17 @@ public class WebCrawlerYoubike {
 		JsonElement jelement = JsonParser.parseString(data);
 		JsonObject root = jelement.getAsJsonObject();
 		JsonObject retVal = root.getAsJsonObject("retVal");
+		int my_sbi = 40; // 可借
+		int my_bemp = 40; // 可還
 		for(int i=2001;i<=2425;i++) {
 			JsonObject station = retVal.getAsJsonObject(i+"");
-			System.out.println(station);
+			if(station != null) {
+				int sbi = station.get("sbi").getAsInt();
+				int bemp = station.get("bemp").getAsInt();
+				if(sbi >= my_sbi && bemp >= my_bemp) {
+					System.out.println(station);
+				}
+			}
 		}
 	}
 	
