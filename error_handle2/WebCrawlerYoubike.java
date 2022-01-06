@@ -17,12 +17,31 @@ act(場站是否暫停營運)
 */
 public class WebCrawlerYoubike {
 	public static void main(String[] args) throws IOException {
+		//findSbiAndBemp(40, 40);
+		findSna("火車");
+	}
+	
+	public static void findSna(String keyword) throws IOException {
 		String data = getWebData();
 		JsonElement jelement = JsonParser.parseString(data);
 		JsonObject root = jelement.getAsJsonObject();
 		JsonObject retVal = root.getAsJsonObject("retVal");
-		int my_sbi = 40; // 可借
-		int my_bemp = 40; // 可還
+		for(int i=2001;i<=2425;i++) {
+			JsonObject station = retVal.getAsJsonObject(i+"");
+			if(station != null) {
+				String sna = station.get("sna").getAsString();
+				if(sna.contains(keyword)) {
+					System.out.println(station);
+				}
+			}
+		}
+	}
+	
+	public static void findSbiAndBemp(int my_sbi, int my_bemp) throws IOException {
+		String data = getWebData();
+		JsonElement jelement = JsonParser.parseString(data);
+		JsonObject root = jelement.getAsJsonObject();
+		JsonObject retVal = root.getAsJsonObject("retVal");
 		for(int i=2001;i<=2425;i++) {
 			JsonObject station = retVal.getAsJsonObject(i+"");
 			if(station != null) {
