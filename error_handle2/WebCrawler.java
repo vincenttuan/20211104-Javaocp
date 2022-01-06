@@ -5,12 +5,22 @@ import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.Scanner;
 
+import com.google.gson.Gson;
+
 // 網路爬蟲
 public class WebCrawler {
 
 	public static void main(String[] args) {
 		String data = getWebData();
-		System.out.println(data);
+		Rice[] rices = getRices(data);
+		System.out.println(rices.length);
+		System.out.println(rices[0]);
+	}
+	
+	public static Rice[] getRices(String jsonstr) {
+		Gson gson = new Gson();
+		Rice[] rices = gson.fromJson(jsonstr, Rice[].class);
+		return rices;
 	}
 	
 	public static String getWebData() {
