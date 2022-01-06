@@ -13,8 +13,16 @@ public class WebCrawler {
 	public static void main(String[] args) {
 		String data = getWebData();
 		Rice[] rices = getRices(data);
-		System.out.println(rices.length);
-		System.out.println(rices[0]);
+		System.out.printf("資料筆數: %d\n", rices.length);
+		Scanner sc = new Scanner(System.in);
+		System.out.print("請輸入品名關鍵字:");
+		String keyword = sc.next();
+		for(Rice rice : rices) {
+			if(rice.品名.contains(keyword)) {
+				System.out.printf("不合格品名: %s 不合格原因: %s\n",
+								  rice.品名, rice.不合格原因);
+			}
+		}
 	}
 	
 	public static Rice[] getRices(String jsonstr) {
