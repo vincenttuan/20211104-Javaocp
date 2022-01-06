@@ -23,6 +23,7 @@ public class WebCrawler {
 								  rice.品名, rice.不合格原因);
 			}
 		}
+		sc.close();
 	}
 	
 	public static Rice[] getRices(String jsonstr) {
