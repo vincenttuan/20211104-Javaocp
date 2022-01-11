@@ -13,8 +13,8 @@ public class InsertInto {
 		try(Connection conn = DriverManager.getConnection("jdbc:sqlite:db/mydb.db");
 			PreparedStatement pstmt = conn.prepareStatement(sql);) {
 			
-			pstmt.setString(1, "IT"); // 第一個問號放 "IT"
-			//pstmt.setString(1, "Sales"); // 第一個問號放 "Sales"
+			//pstmt.setString(1, "IT"); // 第一個問號放 "IT"
+			pstmt.setString(1, "Sales"); // 第一個問號放 "Sales"
 			int rowcount = pstmt.executeUpdate(); // 執行更新並得到異動筆數
 			System.out.println("新增影響的異動筆數: " + rowcount);
 			
