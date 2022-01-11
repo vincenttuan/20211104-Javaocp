@@ -23,6 +23,9 @@ public class CreateTable {
 		boolean return_value = stmt.execute(sql);
 		// 若下達式是 sql 查詢指令則會得到 true, 反之得到 false
 		System.out.println(return_value);
+		// 關閉資源
+		stmt.close();
+		conn.close();
 	}
 
 }
