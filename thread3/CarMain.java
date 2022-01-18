@@ -4,7 +4,12 @@ import java.util.concurrent.CyclicBarrier;
 
 public class CarMain {
 	public static void main(String[] args) {
-		Runnable lunch = () -> System.out.println("吃午餐");
+		//Runnable lunch = () -> System.out.println("吃午餐");
+		
+		Runnable lunch = () -> {
+			System.out.println("吃午餐");
+			System.out.println("吃水果");
+		};
 		
 		int parties = 4; // 2, 1
 		CyclicBarrier cyclicBarrier = new CyclicBarrier(parties, lunch);
