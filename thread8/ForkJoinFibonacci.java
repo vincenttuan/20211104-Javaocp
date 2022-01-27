@@ -1,6 +1,7 @@
 package thread8;
 
 import java.util.Date;
+import java.util.concurrent.ForkJoinPool;
 import java.util.concurrent.ForkJoinTask;
 import java.util.concurrent.RecursiveTask;
 
@@ -45,9 +46,18 @@ public class ForkJoinFibonacci extends RecursiveTask<Long> {
 	
 	// 主程式
 	public static void main(String[] args) {
+		long n = 46;
+		
+		System.out.printf("傳統解法:\n"); 
 		System.out.printf("開始時間: %s\n", new Date());
-		long n = 56;
 		System.out.printf("第 %d 項 = %d\n", n, fib(n));
+		System.out.printf("結束時間: %s\n", new Date());
+		
+		ForkJoinFibonacci task = new ForkJoinFibonacci(n);
+		new ForkJoinPool().invoke(task);
+		System.out.printf("ForkJoin解法:\n"); 
+		System.out.printf("開始時間: %s\n", new Date());
+		System.out.printf("第 %d 項 = %d\n", n, task.getNumber());
 		System.out.printf("結束時間: %s\n", new Date());
 	}
 
