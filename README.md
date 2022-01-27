@@ -56,3 +56,46 @@ public class ForkJoinFibonacci extends RecursiveTask<Long> {
     }
 
 }
+    
+//----------------------------------------------------------
+    
+import java.util.concurrent.ForkJoinPool;
+import java.util.concurrent.ForkJoinTask;
+import java.util.concurrent.RecursiveAction;
+
+public class Sum extends RecursiveAction{
+    final int A = 3; // 門檻值
+    int stIndex, lstIndex;
+    int[] data;
+
+    public Sum(int[] data, int start, int end) {
+        this.stIndex = start;
+        this.lstIndex = end;
+        this.data = data;
+    }
+    
+    @Override
+    protected void compute() {
+        if(lstIndex - stIndex <= A) { // 小於或等於門檻值就直接求解
+            int sum = 0;
+            for(int i=stIndex;i<lstIndex;i++) {
+                sum += data[i];
+            }
+            System.out.printf("sum: %d\n", sum);
+        } else { // 進行拆分
+            //new Sum(data, stIndex+A, lstIndex).fork();
+            //new Sum(data, stIndex, Math.min(lstIndex, stIndex+A)).compute();
+        	Sum s1 = new Sum(data, stIndex+A, lstIndex);
+        	Sum s2 = new Sum(data, stIndex, Math.min(lstIndex, stIndex+A));
+        	ForkJoinTask.invokeAll(s1, s2);
+        }
+    }
+    
+    public static void main(String[] args) {
+        int[] data = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
+        ForkJoinPool fjp = new ForkJoinPool();
+        Sum sum = new Sum(data, 0, data.length);
+        fjp.invoke(sum);
+    }
+    
+}
