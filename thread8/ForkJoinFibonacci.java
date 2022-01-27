@@ -6,7 +6,7 @@ import java.util.concurrent.ForkJoinTask;
 import java.util.concurrent.RecursiveTask;
 
 public class ForkJoinFibonacci extends RecursiveTask<Long> {
-	private static final long THRESHOLD = 10;
+	private static final long THRESHOLD = 38;
 	private Long number;
 	
 	public ForkJoinFibonacci(Long number) {
@@ -46,19 +46,21 @@ public class ForkJoinFibonacci extends RecursiveTask<Long> {
 	
 	// 主程式
 	public static void main(String[] args) {
-		long n = 46;
+		long n = 50;
+		int processors = 4; // 核心數
+		System.out.printf("ForkJoin解法:\n");
+		System.out.printf("開始時間: %s\n", new Date());
+		ForkJoinFibonacci task = new ForkJoinFibonacci(n);
+		new ForkJoinPool(processors).invoke(task);
+		System.out.printf("第 %d 項 = %d\n", n, task.getNumber());
+		System.out.printf("結束時間: %s\n", new Date());
 		
 		System.out.printf("傳統解法:\n"); 
 		System.out.printf("開始時間: %s\n", new Date());
 		System.out.printf("第 %d 項 = %d\n", n, fib(n));
 		System.out.printf("結束時間: %s\n", new Date());
 		
-		ForkJoinFibonacci task = new ForkJoinFibonacci(n);
-		new ForkJoinPool().invoke(task);
-		System.out.printf("ForkJoin解法:\n"); 
-		System.out.printf("開始時間: %s\n", new Date());
-		System.out.printf("第 %d 項 = %d\n", n, task.getNumber());
-		System.out.printf("結束時間: %s\n", new Date());
+		
 	}
 
 	
