@@ -5,6 +5,7 @@ import java.io.IOException;
 import java.util.Date;
 
 public class FileWriterDemo {
+	// FileWriter 開啟檔案或關閉檔案 都要 try-catch
 	public static void main(String[] args) {
 		FileWriter fw = null;
 		try {
