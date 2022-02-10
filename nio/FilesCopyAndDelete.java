@@ -11,7 +11,7 @@ public class FilesCopyAndDelete {
 	public static void main(String[] args) {
 		Path source = Paths.get("src/nio/files/1000 Sales Records.csv");
 		Path dest = Paths.get("src/nio/files/backup 1000 Sales Records.csv");
-		
+		// Copy
 		try {
 			Files.copy(source, dest);
 			System.out.println("Copy OK!");
@@ -26,6 +26,17 @@ public class FilesCopyAndDelete {
 				} catch (IOException e2) {
 					System.out.println(e2);
 				}
+			}
+		}
+		// Delete
+		Scanner scanner = new Scanner(System.in);
+		System.out.print("是否要刪除來源資料, 要的話請輸入 y : ");
+		if(scanner.next().equals("y")) {
+			try {
+				Files.delete(source);
+				System.out.println("Delete source OK!");
+			} catch (IOException e3) {
+				System.out.println(e3);
 			}
 		}
 		
